@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <AddTodo @add-todo="addTodo"/>
+    <Todos/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import AddTodo from "../components/AddTodo"
+import Todos from "../components/Todos"
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    AddTodo,
+    Todos
+  },
+  data(){
+    return{
+      todos:[]
+    }
+  },
+  methods:{
+    addTodo(newTodo){
+      alert(123444)
+      const {title,completed} = newTodo;
+      console.log(newTodo)
+
+    }
   }
 }
 </script>
