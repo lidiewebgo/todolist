@@ -1,7 +1,9 @@
 <template>
     <div>   
-        todos
-        <TodoItem/>
+        <div :key="todo.id" v-for="todo in todos">
+            <TodoItem :todo="todo" @del-todo="$emit('del-todo',todo.id)"/>
+        </div>
+        
     </div>  
 </template>
 
@@ -11,21 +13,11 @@ import TodoItem from "./TodoItem"
         name:"Todos",
         components:{
             TodoItem,
-        }
+        },
+        props:["todos"]
     }
 </script>
 
 <style lang="scss" scoped>
-form {
-    display: flex;
-  }
 
-  input[type="text"] {
-    flex: 10;
-    padding: 5px;
-  }
-
-  input[type="submit"] {
-    flex: 2;
-  }
 </style>

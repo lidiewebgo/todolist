@@ -17,7 +17,6 @@ export default {
   },
   methods: {
     addTodo() {
-   
       const newTodo = {
         title: this.title,
         completed: false,
